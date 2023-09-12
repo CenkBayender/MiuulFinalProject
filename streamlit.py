@@ -24,9 +24,9 @@ page = st.sidebar.radio("Go to", ["Summary", "Finding a shortest route", "Contac
 #image_url = "https://github.com/CenkBayender/MiuulFinalProject/blob/main/Logo1.jpeg"
 
 # Görüntüyü ekleme
-image = st.image(image_url, use_column_width=True)
+#image = st.image(image_url, use_column_width=True)
 
-st.markdown("<div style='text-align: center;'><img src='https://github.com/CenkBayender/MiuulFinalProject/blob/main/Logo1.jpeg'></div>", unsafe_allow_html=True)
+#st.markdown("<div style='text-align: center;'><img src='https://github.com/CenkBayender/MiuulFinalProject/blob/main/Logo1.jpeg'></div>", unsafe_allow_html=True)
 
 
 #st.image("your_image.jpg", caption="Resim Açıklaması", use_column_width=True)
