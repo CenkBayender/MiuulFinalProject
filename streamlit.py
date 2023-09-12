@@ -2,7 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import math
 import pandas as pd
-import folium
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.cluster import KMeans
