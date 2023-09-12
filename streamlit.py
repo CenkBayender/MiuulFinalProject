@@ -20,8 +20,35 @@ st.set_page_config(page_title="Electrical Vehicle", layout="wide")
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Summary", "Finding a shortest route", "Contact"])
 
+
+#image_url = "https://github.com/CenkBayender/MiuulFinalProject/blob/main/Logo1.jpeg"
+
+# Görüntüyü ekleme
+image = st.image(image_url, use_column_width=True)
+
+st.markdown("<div style='text-align: center;'><img src='https://github.com/CenkBayender/MiuulFinalProject/blob/main/Logo1.jpeg'></div>", unsafe_allow_html=True)
+
+
+#st.image("your_image.jpg", caption="Resim Açıklaması", use_column_width=True)
+
+
 if page == "Summary":
-    st.title("Electrical Vehicle")
+
+
+    st.markdown("""
+        <style>
+            /* Başlık için font büyüklüğünü ve rengini ayarlayın */
+            .title-text {
+                font-size: 48px;
+                color: #2596be; /* Başlık rengini buradan ayarlayabilirsiniz */
+                text-align: center; /* Başlığı ortala */
+                font-weight: bold; /* Kalın (bold) yazı tipi */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    # Başlığı belirli bir stil sınıfıyla oluşturun
+    st.markdown('<p class="title-text">E-CHARGEFINDER</p>', unsafe_allow_html=True)
 
     #url = "https://raw.githubusercontent.com/oguzcnmdn/MiuulFinalProject/main/datasets/final_traffic_data_C.csv"
     #df = pd.read_csv(url)
@@ -32,6 +59,7 @@ if page == "Summary":
     data = pd.read_csv('final_traffic_data_C.csv')
 
     df = data.copy()
+    st.title("Traffic Data")
     st.write(df.head())
 
     df.drop(columns=['Unnamed: 0', 'GEOHASH', 'LATITUDE', 'LONGITUDE'], axis=1, inplace=True)
@@ -128,7 +156,7 @@ if page == "Summary":
 
     data["cluster"].value_counts()
 
-    st.write(f'First Model Elbow Method K ={4}')
+    st.title(f'First Model Elbow Method K ={4}')
     st.line_chart(elbow.k_scores_, width=500, use_container_width=True) #elbow kscores çalışıyor mu
 
     # cluster index sabitleme
@@ -171,7 +199,7 @@ if page == "Summary":
 
     df_cluster_5["cluster"].value_counts()
 
-    st.write(f'Second Model Elbow Method K ={3}')
+    st.title(f'Second Model Elbow Method K ={3}')
     st.line_chart(elbow.k_scores_, width=500, use_container_width=True)
 
     df_cluster_5.to_csv("clustered_final.csv")
@@ -197,9 +225,11 @@ if page == "Summary":
     df_cluster = df["cluster"].value_counts().reset_index()
     df_cluster = df_cluster.sort_values(by="cluster", ascending=False)
     df_cluster.columns = ['cluster', 'Tavsiye']
-    st.dataframe(df_cluster)
+    #st.dataframe(df_cluster)
 
     df_cluster_ = df.loc[:, ["cluster", "LATITUDE", "LONGITUDE"]]
+
+    st.title("Demonstration of Map")
 
     st.map(df_cluster_, latitude='LATITUDE', longitude='LONGITUDE', size=60, color='#0044ff')
 
