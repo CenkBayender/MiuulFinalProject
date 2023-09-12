@@ -6,7 +6,7 @@ import numpy as np
 
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import RobustScaler
-
+from yellowbrick.cluster import KElbowVisualizer
 from sklearn.preprocessing import MinMaxScaler
 
 pd.set_option('display.max_columns', None)
