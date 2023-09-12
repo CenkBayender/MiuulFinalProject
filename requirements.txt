@@ -3,5 +3,4 @@ pandas
 matplotlib
 scikit-learn
 numpy
-scikit-yb
-pip install --upgrade scikit-yb
+yellowbrick
